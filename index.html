@@ -7,13 +7,13 @@
     <title>What a Trip</title>
 <!--bootstrap.min.css-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<!-- Bootstrap Date-Picker Plugin -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 <!--Font awesome-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <!--style.css-->
 <link rel="stylesheet" href="assets/css/style.css" />
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
 </head>
 <body>
 
@@ -45,7 +45,7 @@
    <div class="hero-text">
      <h1>What a Trip</h1>
      <p>Find your ideal vacation on budget</p>
-     <button>Book Now</button>
+     <button>Explore</button>
    </div>
  </div>
 <div class="flight-engine">
@@ -68,11 +68,11 @@
                    </div>
                    <div class="persent-one less-per">
                       <i class="fa fa-calendar" ></i>
-                      <input type="text" name="dep" class="textboxstyle" id="from-date1" placeholder="Depart">
+                      <input type="text" name="dep" class="textboxstyle"  id="date_depart" placeholder="Depart">
                    </div>
                    <div class="persent-one less-per">
                       <i class="fa fa-calendar" ></i>
-                      <input type="text" name="dep" class="textboxstyle" id="to-date" placeholder="Returrn">
+                      <input type="text" name="dep" class="textboxstyle" id="date_return" placeholder="Return">
                    </div>
                    <div class="persent-one">
                       <i class="fa fa-user" ></i>
@@ -82,44 +82,22 @@
                       <input type="Submit" name="submit" value="Search" class="btn btn-info cst-btn" id="srch">
                    </div>
                 </div>
-                <!-- flight tab -->
              </div>
-             <!-- tab 1 -->
-              <div id="2" class="tab1">
-                <div class="flight-tab row">
-                   <div class="persent-one">
-                      <i class="fa fa-map-marker" ></i>
-                      <input type="text" name="dep" class="textboxstyle" id="dep" placeholder="From City or airport">
-                   </div>
-                   <div class="persent-one">
-                      <i class="fa fa-map-marker" ></i>
-                      <input type="text" name="dep" class="textboxstyle" id="arival" placeholder="To City or airport">
-                   </div>
-                   <div class="persent-one less-per">
-                      <i class="fa fa-calendar" ></i>
-                      <input type="text" name="dep" class="textboxstyle" id="from-date1" placeholder="Depart">
-                   </div>
-                   <div class="persent-one less-per">
-                      <i class="fa fa-calendar" ></i>
-                      <input type="text" name="dep" class="textboxstyle" id="to-date" placeholder="Returrn">
-                   </div>
-                   <div class="persent-one">
-                      <i class="fa fa-user" ></i>
-                      <div class="textboxstyle" id="passenger">01 Passenger</div>
-                   </div>
-                   <div class="persent-one less-btn">
-                      <input type="Submit" name="submit" value="Search" class="btn btn-info cst-btn" id="srch">
-                   </div>
-                </div>
-                <!-- flight tab -->
              </div>
-             <!-- tab 1 -->
           </div>
           </div>
-          <!-- tab content -->
        </div>
-       <!-- tabbing -->
-    </div>
- </div>
+
+       <script>
+   $("#date_depart").datepicker({
+    dateFormat: "yy-mm-dd"
+}).datepicker("setDate", "0");
+
+$("#date_return").datepicker({
+    dateFormat: "yy-mm-dd"
+}).datepicker("setDate", "0");
+       </script>
+
+
 </body>
 </html>
