@@ -15,6 +15,7 @@
 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" />
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
+
 </head>
 <body>
 
@@ -34,7 +35,6 @@
                             <a class="nav-item nav-link" href="index.html">Home</a>
                             <a class="nav-item nav-link" href="destination.html">Destination</a>
                             <a class="nav-item nav-link" href="packages .html">Packages </a>
-                            <a class="nav-item nav-link" href="specialOffers .html">Special Offers </a>
                         </div>     
                     </div>
                 </nav>
@@ -46,7 +46,7 @@
    <div class="hero-text">
      <h1>What a Trip</h1>
      <p>Find your ideal vacation on budget</p>
-     <button>Explore</button>
+     <button>Explore Destinations</button>
    </div>
  </div>
 <div class="flight-engine">
@@ -61,11 +61,36 @@
                 <div class="flight-tab row">
                    <div class="persent-one">
                       <i class="fa fa-map-marker" ></i>
-                      <input type="text" name="dep" class="textboxstyle" id="dep" placeholder="From City or airport">
+                      <input list = "depart"class="textboxstyle" id="dep" placeholder="From City">
+                      <datalist id="depart">
+                        <option value="New York">
+                        <option value="San Francisco">
+                        <option value="Los Angeles">
+                        <option value="Seattle">
+                        <option value="Florida">
+                        <option value="Atlanta">
+                        <option value="Las Vegas">
+                        <option value="Chicago">
+                        <option value="Ohio">
+                        <option value="Boston">
+                      </datalist>
+                      
                    </div>
                    <div class="persent-one">
                       <i class="fa fa-map-marker" ></i>
-                      <input type="text" name="dep" class="textboxstyle" id="arival" placeholder="To City or airport">
+                      <input list = "destination"class="textboxstyle" id="dep" placeholder="To City">
+                      <datalist id="destination">
+                        <option value="Reykjavik">
+                        <option value="Tulum">
+                        <option value="Abu Dhabi">
+                        <option value="Hyderabad">
+                        <option value="Moscow">
+                        <option value="Sydney">
+                        <option value="Auckland">
+                        <option value="Saint Lucia">
+                        <option value="Paris">
+                        <option value="Shanghai">
+                      </datalist>
                    </div>
                    <div class="persent-one less-per">
                       <i class="fa fa-calendar" ></i>
@@ -83,7 +108,7 @@
                                  <option value="2">2</option>
                                  <option value="3">3</option>
                                  <option value="4">4</option>
-                                 <option value="5">4</option>
+                                 <option value="5">5</option>
                                </select>
                       </div>
                    </div>
@@ -105,6 +130,8 @@
 $("#date_return").datepicker({
     dateFormat: "yy-mm-dd"
 }).datepicker("setDate", "0");
+
+
        </script>
 
 
