@@ -61,36 +61,35 @@
                 <div class="flight-tab row">
                    <div class="persent-one">
                       <i class="fa fa-map-marker" ></i>
-                      <input list = "depart"class="textboxstyle" id="dep" placeholder="From City">
-                      <datalist id="depart">
-                        <option value="New York">
-                        <option value="San Francisco">
-                        <option value="Los Angeles">
-                        <option value="Seattle">
-                        <option value="Florida">
-                        <option value="Atlanta">
-                        <option value="Las Vegas">
-                        <option value="Chicago">
-                        <option value="Ohio">
-                        <option value="Boston">
-                      </datalist>
-                      
+                      <input list = "depart" class="textboxstyle" id="dep" placeholder="From City">
+                      <select id="depart">
+                           <option value="New York" data-id="1">New York</option>
+                           <option value="San Francisco" data-id="2">San Francisco</option>
+                           <option value="Los Angeles" data-id="3">Los Angeles</option>
+                           <option value="Seattle" data-id="4">Seattle</option>
+                           <option value="Florida" data-id="5">Florida</option>
+                           <option value="Atlanta" data-id="6">Atlanta</option>
+                           <option value="Las Vegas" data-id="7">Las Vegas</option>
+                           <option value="Chicago" data-id="8">Chicago</option>
+                           <option value="Ohio" data-id="9">Ohio</option>
+                           <option value="Boston" data-id="10">Boston</option>
+                         </select> 
                    </div>
                    <div class="persent-one">
-                      <i class="fa fa-map-marker" ></i>
-                      <input list = "destination"class="textboxstyle" id="dep" placeholder="To City">
-                      <datalist id="destination">
-                        <option value="Reykjavik">
-                        <option value="Tulum">
-                        <option value="Abu Dhabi">
-                        <option value="Hyderabad">
-                        <option value="Moscow">
-                        <option value="Sydney">
-                        <option value="Auckland">
-                        <option value="Saint Lucia">
-                        <option value="Paris">
-                        <option value="Shanghai">
-                      </datalist>
+                        <i class="fa fa-map-marker" ></i>
+                        <input list = "dest" class="textboxstyle" id="dep" placeholder="To City">
+                        <select id="dest">
+                              <option value="Reykjavik" data-id="1">Reykjavik</option>
+                              <option value="Tulum" data-id="2">Tulum</option>
+                              <option value="Abu Dhabi" data-id="3">Abu Dhabi</option>
+                              <option value="Hyderabad" data-id="4">Hyderabad</option>
+                              <option value="Moscow" data-id="5">Moscow</option>
+                              <option value="Sydney" data-id="6">Sydney</option>
+                              <option value="Auckland" data-id="7">Auckland</option>
+                              <option value="Saint Lucia" data-id="8">Saint Lucia</option>
+                              <option value="Paris" data-id="9">Paris</option>
+                              <option value="Shanghai" data-id="10">Shanghai</option>
+                            </select> 
                    </div>
                    <div class="persent-one less-per">
                       <i class="fa fa-calendar" ></i>
@@ -132,8 +131,12 @@ $("#date_return").datepicker({
 }).datepicker("setDate", "0");
 
 
-       </script>
+$(document).ready(function(){
+  $("#dest").change(function() {
+    alert($(this).find(':selected').data('id'));
+  });
+});
 
-
+</script>
 </body>
 </html>
