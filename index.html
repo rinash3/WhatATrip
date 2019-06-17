@@ -11,10 +11,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <!--style.css-->
 <link rel="stylesheet" href="assets/css/style.css" />
+<!--jQuery datepicker-->
 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" />
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?type=airport&key=AIzaSyAEwfgyxyExOuUJ9P_2sNgGIwcAY7b-fd4&amp;libraries=places"></script>
 </head>
 <body>
 
@@ -61,13 +61,11 @@
                 <div class="flight-tab row">
                    <div class="persent-one">
                       <i class="fa fa-map-marker" ></i>
-                      <input type="text" name="autocomplete_search" class="textboxstyle" id="autocomplete_search" placeholder="From City or airport">
+                      <input type="text" name="dep" class="textboxstyle" id="dep" placeholder="From City or airport">
                    </div>
                    <div class="persent-one">
                       <i class="fa fa-map-marker" ></i>
-                      <input type="text" name="autocomplete_search" class="textboxstyle" id="autocomplete_search" placeholder="To City or airport">
-                      <input type="hidden" name="lat">
-                      <input type="hidden" name="long">
+                      <input type="text" name="dep" class="textboxstyle" id="arival" placeholder="To City or airport">
                    </div>
                    <div class="persent-one less-per">
                       <i class="fa fa-calendar" ></i>
@@ -79,7 +77,15 @@
                    </div>
                    <div class="persent-one">
                       <i class="fa fa-user" ></i>
-                      <div class="textboxstyle" id="passenger">01 Passenger</div>
+                      <div class="textboxstyle" id="passenger">Passengers
+                           <select name="passengers">
+                                 <option value="1">1</option>
+                                 <option value="2">2</option>
+                                 <option value="3">3</option>
+                                 <option value="4">4</option>
+                                 <option value="5">4</option>
+                               </select>
+                      </div>
                    </div>
                    <div class="persent-one less-btn">
                       <input type="Submit" name="submit" value="Search" class="btn btn-info cst-btn" id="srch">
@@ -95,26 +101,10 @@
    $("#date_depart").datepicker({
     dateFormat: "yy-mm-dd"
 }).datepicker("setDate", "0");
+
 $("#date_return").datepicker({
     dateFormat: "yy-mm-dd"
 }).datepicker("setDate", "0");
-
-
-google.maps.event.addDomListener(window, 'load', initialize);
-    function initialize() {
-      var input = document.getElementById('autocomplete_search');
-      var autocomplete = new google.maps.places.Autocomplete(input);
-      autocomplete.addListener('place_changed', function () {
-      var place = autocomplete.getPlace();
-      // place variable will have all the information you are looking for.
-      $('#lat').val(place.geometry['location'].lat());
-      $('#long').val(place.geometry['location'].lng());
-    });
-  }
-
-
-
-
        </script>
 
 
