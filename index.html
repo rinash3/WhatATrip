@@ -49,6 +49,9 @@
      <button>Explore Destinations</button>
    </div>
  </div>
+
+ <br>
+ <br>
 <div class="flight-engine">
     <div class="container">
        <div class="tabing">
@@ -79,9 +82,9 @@
                         <i class="fa fa-map-marker" ></i>
                         <input list = "dest" class="textboxstyle" id="dep" placeholder="To City">
                         <select id="dest">
-                              <option value="Reykjavik" data-id="1">Reykjavik</option>
-                              <option value="Tulum" data-id="2">Tulum</option>
-                              <option value="Abu Dhabi" data-id="3">Abu Dhabi</option>
+                              <option value="Reykjavik" data-id="189970">Reykjavik</option>
+                              <option value="Tulum" data-id="150813">Tulum</option>
+                              <option value="Abu Dhabi" data-id="294013">Abu Dhabi</option>
                               <option value="Hyderabad" data-id="4">Hyderabad</option>
                               <option value="Moscow" data-id="5">Moscow</option>
                               <option value="Sydney" data-id="6">Sydney</option>
@@ -121,7 +124,10 @@
           </div>
        </div>
 
-       <script>
+      
+ 
+ <script>
+          
    $("#date_depart").datepicker({
     dateFormat: "yy-mm-dd"
 }).datepicker("setDate", "0");
@@ -137,6 +143,11 @@ $(document).ready(function(){
   });
 });
 
+
+
+
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 </html>
