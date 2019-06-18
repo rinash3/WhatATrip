@@ -63,8 +63,9 @@
              <div id="1" class="tab1 active">
                 <div class="flight-tab row">
                    <div class="persent-one">
+                      <div class="custom-select">
                       <i class="fa fa-map-marker" ></i>
-                      <input list = "depart" class="textboxstyle" id="dep" placeholder="From City">
+                     <!-- <input list = "depart" class="textboxstyle" id="dep" placeholder="From City">-->
                       <select id="depart">
                            <option value="New York" data-id="1">New York</option>
                            <option value="San Francisco" data-id="2">San Francisco</option>
@@ -78,14 +79,16 @@
                            <option value="Boston" data-id="10">Boston</option>
                          </select> 
                    </div>
+                   </div>
                    <div class="persent-one">
-                        <i class="fa fa-map-marker" ></i>
-                        <input list = "dest" class="textboxstyle" id="dep" placeholder="To City">
-                        <select id="dest">
+                        <!--<input list = "dest" class="textboxstyle" id="dep" placeholder="To City">-->
+                        <div class="custom-select"> 
+                              <i class="fa fa-map-marker" ></i>
+                            <select id="dest">
                               <option value="Reykjavik" data-id="189970">Reykjavik</option>
                               <option value="Tulum" data-id="150813">Tulum</option>
                               <option value="Abu Dhabi" data-id="294013">Abu Dhabi</option>
-                              <option value="Hyderabad" data-id="4">Hyderabad</option>
+                              <option value="Hyderabad" data-id="297586">Hyderabad</option>
                               <option value="Moscow" data-id="5">Moscow</option>
                               <option value="Sydney" data-id="6">Sydney</option>
                               <option value="Auckland" data-id="7">Auckland</option>
@@ -93,7 +96,9 @@
                               <option value="Paris" data-id="9">Paris</option>
                               <option value="Shanghai" data-id="10">Shanghai</option>
                             </select> 
+                        </div>
                    </div>
+                  
                    <div class="persent-one less-per">
                       <i class="fa fa-calendar" ></i>
                       <input type="text" name="dep" class="textboxstyle"  id="date_depart" placeholder="Depart">

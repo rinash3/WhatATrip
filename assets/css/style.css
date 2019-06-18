@@ -102,7 +102,7 @@ body, html {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://www.madmonkeyhostels.com/adventures/wp-content/uploads/2019/01/philippines-island-hopping-tour-trutravel-siargao-el-nido-coron-palawan-cebu-puerto-princessa-backpacker.jpg");
 
   /* Set a specific height */
-  height: 46%;
+  height: 50%;
 
   /* Position and center the image to scale nicely on all screens */
   background-position: center;
@@ -120,3 +120,8 @@ body, html {
   transform: translate(-50%, -50%);
   color: white;
 }
+
+.custom-select {
+    position: relative;
+    font-family: Arial;
+  }
