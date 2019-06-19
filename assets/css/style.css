@@ -2,7 +2,7 @@
     position: relative;
     bottom: 50px;
     padding: 20px; 
-      top: -32px;
+    top: -32px;
 }
 
 
@@ -113,11 +113,36 @@ body, html {
   color: white;
 }
 
-.custom-select {
-    position: relative;
-    font-family: Arial;
-  }
+.cityWeather{
+    float: left;
+    width: 100%;
+    margin-top: 30px;
+}
 
  .cityAttr{
-     float: left;
+    float: left;
+    margin-left: 30px;
+    margin-top: 30px;
+    width: 100%;
+    
+   /*background: url("https://images.unsplash.com/photo-1490598000245-075175152d25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80");
+    */
  }
+p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+   
+    font-weight: 800;
+    
+}
+#dest,#depart{
+    width:180px;
+    height: 38px;
+    
+}
+select{
+    text-align-last: center;
+}
+  
+  h3{
+      color: #ba0400;
+  }

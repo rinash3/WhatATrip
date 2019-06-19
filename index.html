@@ -45,7 +45,7 @@
 <div class="hero-image">
    <div class="hero-text">
      <h1>What a Trip</h1>
-     <p>Find your ideal vacation on budget</p>
+     <p>Find your ideal vacation based on your favorite attractions</p>
      <button>Explore Destinations</button>
    </div>
  </div>
@@ -63,10 +63,11 @@
              <div id="1" class="tab1 active">
                 <div class="flight-tab row">
                    <div class="persent-one">
-                      <div class="custom-select">
-                     <!-- <i class="fa fa-map-marker" ></i>-->
+                     
+                     <i class="fa fa-map-marker" ></i>
                      <!-- <input list = "depart" class="textboxstyle" id="dep" placeholder="From City">-->
                       <select id="depart">
+                          <option value="default" data-id="0">Departing</option>
                            <option value="New York" data-id="1">New York</option>
                            <option value="San Francisco" data-id="2">San Francisco</option>
                            <option value="Los Angeles" data-id="3">Los Angeles</option>
@@ -78,26 +79,27 @@
                            <option value="Ohio" data-id="9">Ohio</option>
                            <option value="Boston" data-id="10">Boston</option>
                          </select> 
+                   
                    </div>
-                   </div>
-                   <div class="persent-one">
+                  
                         <!--<input list = "dest" class="textboxstyle" id="dep" placeholder="To City">-->
-                        <div class="custom-select"> 
-                              <!-- <i class="fa fa-map-marker" ></i>-->
-                            <select id="dest">
-                              <option value="Reykjavik" data-id="189970">Reykjavik</option>
-                              <option value="Tulum" data-id="150813">Tulum</option>
-                              <option value="Abu Dhabi" data-id="294013">Abu Dhabi</option>
-                              <option value="Hyderabad" data-id="297586">Hyderabad</option>
-                              <option value="Moscow" data-id="298484">Moscow</option>
-                              <option value="Sydney" data-id="255060">Sydney</option>
-                              <option value="Auckland" data-id="255106">Auckland</option>
-                              <option value="Saint Lucia" data-id="147342">Saint Lucia</option>
-                              <option value="Paris" data-id="187147">Paris</option>
-                              <option value="Shanghai" data-id="308272">Shanghai</option>
+                        <div class="persent-one">
+                              <i class="fa fa-map-marker" ></i>
+                            <select id="dest" >
+                              <option value="default" data-id="0">Destination</option>
+                              <option value="Reykjavik" data-id="189970" data-id2="6692263"></option>Reykjavik</option>
+                              <option value="Tulum" data-id="150813" data-id2="3515040">Tulum</option>
+                              <option value="Abu Dhabi" data-id="294013" data-id2="292968">Abu Dhabi</option>
+                              <option value="Hyderabad" data-id="297586" data-id2="1269844>Hyderabad</option>
+                              <option value="Moscow" data-id="298484" data-id2="5601538">Moscow</option>
+                              <option value="Sydney" data-id="255060" data-id2="6619279">Sydney</option>
+                              <option value="Auckland" data-id="255106" data-id2=2193732>Auckland</option>
+                              <option value="Saint Lucia" data-id="147342" data-id2="2150650">Saint Lucia</option>
+                              <option value="Paris" data-id="187147" data-id2="6455259">Paris</option>
+                              <option value="Shanghai" data-id="308272" data-id2="1796236">Shanghai</option>
                             </select> 
                         </div>
-                   </div>
+                  
                   
                    <div class="persent-one less-per">
                       <i class="fa fa-calendar" ></i>
@@ -122,12 +124,9 @@
                    <div class="persent-one less-btn">
                       <input type="Submit" name="submit" value="Search" class="btn btn-info cst-btn" id="srch">
                    </div>
-                   
                 </div>
-                
              </div>
              </div>
-             
           </div>
           </div>
           <div class="cityWeather"></div>
@@ -149,19 +148,31 @@ $("#date_return").datepicker({
 $("#dest").change(function() {
      var cityId = $(this).find(':selected').data('id');
      var queryURL = "https://api.tripadvisor.com/api/partner/2.0/location/" + cityId + "/attractions?key=2f5aef9e-d399-4298-9986-ea6305c270a8";
-
+var cityId2=$(this).find(':selected').data('id2');
+var queryURL2="https://api.openweathermap.org/data/2.5/forecast?id=" + cityId2 + "&units=imperial&APPID=2ab31e3272a311a360bcba6d67e3f186"
 
     $("#srch").on("click", function(event) {
     
+                       $.ajax({
+                        url: queryURL2,
+                        method: "GET"
+                    }).then(function(response2) {
+                 console.log(response2);
+                 var cityTemp=$("<p>").html("Temp: " + response2.list[0].main.temp);
+                 var cityDate=$("<p>").html("Date: " + response2.city.name);
+                 console.log(cityTemp);
+                 console.log(cityDate);
+                $(".cityWeather").append(cityTemp,cityDate);
+                    })
+                        
                     $.ajax({
                         url: queryURL,
-                        method: "GET"
+                        method: "GET" 
                     }).then(function(response) {
                      
-      $(".cityAttr").empty();
+                        $(".cityAttr").empty();
                         $("<div id=city-view></div>").appendTo("#city");
                         for (let i = 0; i <5; i++) {
-                          
                         var respParse = JSON.parse(response);
                         console.log(respParse);
                         console.log(respParse.data[i].address_obj.address_string);
@@ -170,10 +181,10 @@ $("#dest").change(function() {
                         // $("#city-view").text(respParse.data[0].address_obj.address_string);
                         var rest1 = $("<div id='rest1'>");
                         var rest1Adress = respParse.data[i].address_obj.address_string;
-                        var rating = $("<p>").text("Rating:" + "  " + (respParse.data[i].rating));
-                        var name = $("<p>").text("Name:" + "  " + (respParse.data[i].name));
-                        var description = $("<p>").text("Description:" + "    "  +(respParse.data[i].description));
-                        var pOne = $("<p>").text("Address:" +"    "+ rest1Adress);
+                        var rating = $("<p>").html("<h3>Rating:</h3>" +(respParse.data[i].rating));
+                        var name = $("<p>").html("<h3>Name:</h3>" + (respParse.data[i].name));
+                        var description = $("<p>").html("<h3>Description:</h3>" +(respParse.data[i].description));
+                        var pOne = $("<p>").html("<h3>Address: </h3>" + rest1Adress);
                         $(".cityAttr").append(name, rating, pOne, description);
                        
                         //??? how to make my dropdown list empty on load
@@ -183,24 +194,7 @@ $("#dest").change(function() {
                 });
             });
 
-        
-            $(document).ready(function() {
-   $("#dest").change(function() {
-       var destination = $(this).find(':selected').val();
-       console.log(destination);
-
-      // var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
-        //   destination + "2ab31e3272a311a360bcba6d67e3f186";
-   });
-})
-
-//$(document).ready(function(){
-  //$("#dest").change(function() {
-    //var destination = $(this).find(':selected').val();
-    //console.log(destination);
-   // alert($(this).find(':selected').val());
-  //});
-//});
+          
 
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
