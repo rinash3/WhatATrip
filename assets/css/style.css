@@ -1,17 +1,11 @@
 .flight-engine {
-    position: absolute;
-    left: 0px;
-    right: 0px;
+    position: relative;
     bottom: 50px;
-    padding: 20px;
-    z-index: 999;
+    padding: 20px; 
+      top: -32px;
 }
-.tab1.active {
-    display: block
-}
-.tab1 {
-    display: none
-}
+
+
 .tabing {
     float: left;
     width: 100%;
@@ -30,9 +24,7 @@
     float: left;
 }
 .tabing ul li a {
-    display: block;
-    padding: 5px;
-    text-decoration: none;
+   
     color: #fff;
     background: rgba(0, 130, 185, .9);
     margin: 0 10px 0 0;
@@ -125,3 +117,7 @@ body, html {
     position: relative;
     font-family: Arial;
   }
+
+ .cityAttr{
+     float: left;
+ }

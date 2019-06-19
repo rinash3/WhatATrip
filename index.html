@@ -64,7 +64,7 @@
                 <div class="flight-tab row">
                    <div class="persent-one">
                       <div class="custom-select">
-                      <i class="fa fa-map-marker" ></i>
+                     <!-- <i class="fa fa-map-marker" ></i>-->
                      <!-- <input list = "depart" class="textboxstyle" id="dep" placeholder="From City">-->
                       <select id="depart">
                            <option value="New York" data-id="1">New York</option>
@@ -83,18 +83,18 @@
                    <div class="persent-one">
                         <!--<input list = "dest" class="textboxstyle" id="dep" placeholder="To City">-->
                         <div class="custom-select"> 
-                              <i class="fa fa-map-marker" ></i>
+                              <!-- <i class="fa fa-map-marker" ></i>-->
                             <select id="dest">
                               <option value="Reykjavik" data-id="189970">Reykjavik</option>
                               <option value="Tulum" data-id="150813">Tulum</option>
                               <option value="Abu Dhabi" data-id="294013">Abu Dhabi</option>
                               <option value="Hyderabad" data-id="297586">Hyderabad</option>
-                              <option value="Moscow" data-id="5">Moscow</option>
-                              <option value="Sydney" data-id="6">Sydney</option>
-                              <option value="Auckland" data-id="7">Auckland</option>
-                              <option value="Saint Lucia" data-id="8">Saint Lucia</option>
-                              <option value="Paris" data-id="9">Paris</option>
-                              <option value="Shanghai" data-id="10">Shanghai</option>
+                              <option value="Moscow" data-id="298484">Moscow</option>
+                              <option value="Sydney" data-id="255060">Sydney</option>
+                              <option value="Auckland" data-id="255106">Auckland</option>
+                              <option value="Saint Lucia" data-id="147342">Saint Lucia</option>
+                              <option value="Paris" data-id="187147">Paris</option>
+                              <option value="Shanghai" data-id="308272">Shanghai</option>
                             </select> 
                         </div>
                    </div>
@@ -122,14 +122,18 @@
                    <div class="persent-one less-btn">
                       <input type="Submit" name="submit" value="Search" class="btn btn-info cst-btn" id="srch">
                    </div>
+                   
                 </div>
+                
              </div>
              </div>
+             
           </div>
           </div>
-       </div>
+          <div class="cityWeather"></div>
+          <div class="cityAttr"></div>
 
-      
+       </div>
  
  <script>
           
@@ -142,17 +146,63 @@ $("#date_return").datepicker({
 }).datepicker("setDate", "0");
 
 
-$(document).ready(function(){
-  $("#dest").change(function() {
-    alert($(this).find(':selected').data('id'));
-  });
-});
+$("#dest").change(function() {
+     var cityId = $(this).find(':selected').data('id');
+     var queryURL = "http://api.tripadvisor.com/api/partner/2.0/location/" + cityId + "/attractions?key=2f5aef9e-d399-4298-9986-ea6305c270a8";
 
 
+    $("#srch").on("click", function(event) {
+    
+                    $.ajax({
+                        url: queryURL,
+                        method: "GET"
+                    }).then(function(response) {
+                     
+      $(".cityAttr").empty();
+                        $("<div id=city-view></div>").appendTo("#city");
+                        for (let i = 0; i <5; i++) {
+                          
+                        var respParse = JSON.parse(response);
+                        console.log(respParse);
+                        console.log(respParse.data[i].address_obj.address_string);
+                        console.log(respParse.data[i].description);
 
+                        // $("#city-view").text(respParse.data[0].address_obj.address_string);
+                        var rest1 = $("<div id='rest1'>");
+                        var rest1Adress = respParse.data[i].address_obj.address_string;
+                        var rating = $("<p>").text("Rating:" + "  " + (respParse.data[i].rating));
+                        var name = $("<p>").text("Name:" + "  " + (respParse.data[i].name));
+                        var description = $("<p>").text("Description:" + "    "  +(respParse.data[i].description));
+                        var pOne = $("<p>").text("Address:" +"    "+ rest1Adress);
+                        $(".cityAttr").append(name, rating, pOne, description);
+                       
+                        //??? how to make my dropdown list empty on load
+                       
+                      }
+                    });
+                });
+            });
+
+        
+            $(document).ready(function() {
+   $("#dest").change(function() {
+       var destination = $(this).find(':selected').val();
+       console.log(destination);
+
+      // var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
+        //   destination + "2ab31e3272a311a360bcba6d67e3f186";
+   });
+})
+
+//$(document).ready(function(){
+  //$("#dest").change(function() {
+    //var destination = $(this).find(':selected').val();
+    //console.log(destination);
+   // alert($(this).find(':selected').val());
+  //});
+//});
 
 </script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 </html>
