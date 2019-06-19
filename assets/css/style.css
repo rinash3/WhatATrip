@@ -115,19 +115,20 @@ body, html {
 
 .cityWeather{
     float: left;
-    width: 100%;
+   max-width: 960px;
     margin-top: 30px;
+    margin-left: 30px;
+    width: 100%;
 }
 
  .cityAttr{
     float: left;
-    margin-left: 30px;
+    max-width: 960px;
     margin-top: 30px;
+    margin-left: 30px;
     width: 100%;
-    
-   /*background: url("https://images.unsplash.com/photo-1490598000245-075175152d25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80");
-    */
  }
+  
 p{
     font-family: Georgia, 'Times New Roman', Times, serif;
    
@@ -145,4 +146,7 @@ select{
   
   h3{
       color: #ba0400;
+  }
+  i{
+      display: inline-block;
   }
