@@ -115,20 +115,20 @@ body, html {
 
 .cityWeather{
     float: left;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: 20px;
     width: 100%;
-    background-color: azure;
     text-align: center;
    padding-bottom: 5px;
 }
 
  .cityAttr{
     float: left;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: 20px;
+    margin-bottom: 20px;
     width: 100%;
-    background-color: azure;
+
  }
   
 
@@ -142,10 +142,14 @@ select,#date_depart,#date_return{
 }
 .name,.rating, .address, .description{
    margin: 20px 20px 20px 20px;
+  
 }
   
   h5{
       color: #ba0400;
+  }
+  h6{
+      color: darkblue;
   }
   i{
       display: inline-block;
@@ -156,5 +160,14 @@ select,#date_depart,#date_return{
  .cards-display{
      float: left;
      margin-left: 70px;
-     padding-right: 30px;
+     padding-right: 30px;   
+     padding-bottom: 20px; 
+ }
+ .card-body{
+     height: 500px;
+    
+ }
+ .name{
+     font-size: 16px;
+     font-weight: 500;
  }

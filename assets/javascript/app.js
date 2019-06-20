@@ -14,13 +14,14 @@ var cityId2=$(this).find(':selected').data('id2');
 var queryURL2="https://api.openweathermap.org/data/2.5/forecast?id=" + cityId2 + "&units=imperial&APPID=2ab31e3272a311a360bcba6d67e3f186"
 
     $("#srch").on("click", function(event) {
-
+       
+      
                        $.ajax({
                         url: queryURL2,
                         method: "GET"
                     }).then(function(response2) {
                         $(".cityWeather").html("");
-                        $(".cityWeather").html("<h2>Current Weather</h2>");
+                        $(".cityWeather").html("<h2>Weather Details</h2>");
                         var cityName = $(this).find(':selected').val()
                        console.log(response2);
                        for (let i = 0; i < 5; i++) {
@@ -45,12 +46,11 @@ var queryURL2="https://api.openweathermap.org/data/2.5/forecast?id=" + cityId2 +
                         // $("#city-view").text(respParse.data[0].address_obj.address_string);
                         var rest1 = $("<div id='rest1'>");
                         var rest1Adress = respParse.data[i].address_obj.address_string;
-                        var rating = $('<div class="rating">').html("<h5>Rating:</h5>" +(respParse.data[i].rating));
+                        var rating = $('<div class="rating">').html("<h6>Rating:</h6>" +(respParse.data[i].rating));
                         var name = $('<div class="name">').html("<h5>Name:</h5>" + (respParse.data[i].name));
-                        var description = $('<div class="description">').html("<h5>Description:</h5>" +(respParse.data[i].description));
-                        var pOne = $('<div class="address">').html("<h5>Address: </h5>" + rest1Adress);
+                        var description = $('<div class="description">').html("<h6>Description:</h6>" +(respParse.data[i].description));
+                        var pOne = $('<div class="address">').html("<h6>Address: </h6>" + rest1Adress);
                         $(".cityAttr").append(name, rating, pOne, description);
-                       
                        
                       }
                     });
