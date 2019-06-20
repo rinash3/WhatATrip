@@ -20,10 +20,11 @@ var queryURL2="https://api.openweathermap.org/data/2.5/forecast?id=" + cityId2 +
                         method: "GET"
                     }).then(function(response2) {
                         $(".cityWeather").html("");
-                        $(".cityWeather").html("<h2>The header above the ajax output</h2>");
+                        $(".cityWeather").html("<h2>Current Weather</h2>");
+                        var cityName = $(this).find(':selected').val()
                        console.log(response2);
-                       for (let i = 0; i < 2; i++) {
-                       var cityTemp=$("<i>").html("<h4>Date and Temp: </h4>" + response2.list[i].main.temp +"F"+ "       "+ "Date:" +"  " + response2.list[i].dt_txt);
+                       for (let i = 0; i < 5; i++) {
+                       var cityTemp=$("<i>").html(response2.list[i].dt_txt + " "  + " </br> " + "Temp:" + "     " + response2.list[i].main.temp + " F " + "   ");
                        //var cityDate=$("<p>").html("<h4>Date: </h4>" );
                        console.log(cityTemp);
                        //console.log(cityDate);
@@ -40,17 +41,14 @@ var queryURL2="https://api.openweathermap.org/data/2.5/forecast?id=" + cityId2 +
                         $("<div id=city-view></div>").appendTo("#city");
                         for (let i = 0; i <5; i++) {
                         var respParse = JSON.parse(response);
-                        console.log(respParse);
-                        console.log(respParse.data[i].address_obj.address_string);
-                        console.log(respParse.data[i].description);
-
+                    
                         // $("#city-view").text(respParse.data[0].address_obj.address_string);
                         var rest1 = $("<div id='rest1'>");
                         var rest1Adress = respParse.data[i].address_obj.address_string;
-                        var rating = $('<div class="rating">').html("<h3>Rating:</h3>" +(respParse.data[i].rating));
-                        var name = $("<p>").html("<h3>Name:</h3>" + (respParse.data[i].name));
-                        var description = $("<p>").html("<h3>Description:</h3>" +(respParse.data[i].description));
-                        var pOne = $("<p>").html("<h3>Address: </h3>" + rest1Adress);
+                        var rating = $('<div class="rating">').html("<h5>Rating:</h5>" +(respParse.data[i].rating));
+                        var name = $('<div class="name">').html("<h5>Name:</h5>" + (respParse.data[i].name));
+                        var description = $('<div class="description">').html("<h5>Description:</h5>" +(respParse.data[i].description));
+                        var pOne = $('<div class="address">').html("<h5>Address: </h5>" + rest1Adress);
                         $(".cityAttr").append(name, rating, pOne, description);
                        
                        

@@ -115,38 +115,42 @@ body, html {
 
 .cityWeather{
     float: left;
-   max-width: 960px;
     margin-top: 30px;
-    margin-left: 30px;
+    margin-left: 20px;
     width: 100%;
+    background-color: azure;
+    text-align: center;
+   padding-bottom: 5px;
 }
 
  .cityAttr{
     float: left;
-    max-width: 960px;
     margin-top: 30px;
-    margin-left: 30px;
+    margin-left: 20px;
     width: 100%;
+    background-color: azure;
  }
   
-p{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-   
-    font-weight: 800;
-    
-}
+
 #dest,#depart{
     width:180px;
     height: 38px;
     
 }
-select{
+select,#date_depart,#date_return{
     text-align-last: center;
 }
+.name,.rating, .address, .description{
+   margin: 20px 20px 20px 20px;
+}
   
-  h3{
+  h5{
       color: #ba0400;
   }
   i{
       display: inline-block;
+      margin-right: 30px;
+     
+    
   }
+ 
