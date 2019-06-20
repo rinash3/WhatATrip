@@ -153,4 +153,8 @@ select,#date_depart,#date_return{
      
     
   }
- 
+ .cards-display{
+     float: left;
+     margin-left: 70px;
+     padding-right: 30px;
+ }
